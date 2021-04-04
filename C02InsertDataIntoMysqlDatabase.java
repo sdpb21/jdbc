@@ -19,6 +19,8 @@ public class C02InsertDataIntoMysqlDatabase {
 			myStatement.executeUpdate(sql);
 
 			System.out.println("Insert complete.");
+		}catch(Exception exc) {
+			exc.printStackTrace();
 		}
 	}
 
