@@ -17,7 +17,7 @@ public class C03UpdatingDataInAMysqlDatabase {
 			String sql="update employees set email='demo@gmail.com' where id=13";
 			int rowsAffected=myStatement.executeUpdate(sql);
 			System.out.println("Rows affected: "+rowsAffected);
-			
+			System.out.println("Update completed.");
 		}
 	}
 
