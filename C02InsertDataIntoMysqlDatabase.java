@@ -13,6 +13,10 @@ public class C02InsertDataIntoMysqlDatabase {
 			myConnection=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","K1n9-cr1m50n");
 			//2. create a statement
 			myStatement=myConnection.createStatement();
+			//3. execute SQL query
+			String sql="insert into employees (last_name,first_name,email)"
+					  +" values ('Brown','David','david.brown@foo.com')";
+			myStatement.executeUpdate(sql);
 		}
 	}
 
