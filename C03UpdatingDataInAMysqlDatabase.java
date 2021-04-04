@@ -18,6 +18,8 @@ public class C03UpdatingDataInAMysqlDatabase {
 			int rowsAffected=myStatement.executeUpdate(sql);
 			System.out.println("Rows affected: "+rowsAffected);
 			System.out.println("Update completed.");
+		}catch(Exception exc) {
+			exc.printStackTrace();
 		}
 	}
 
