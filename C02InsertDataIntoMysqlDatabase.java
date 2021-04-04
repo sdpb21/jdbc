@@ -17,6 +17,8 @@ public class C02InsertDataIntoMysqlDatabase {
 			String sql="insert into employees (last_name,first_name,email)"
 					  +" values ('Brown','David','david.brown@foo.com')";
 			myStatement.executeUpdate(sql);
+
+			System.out.println("Insert complete.");
 		}
 	}
 
