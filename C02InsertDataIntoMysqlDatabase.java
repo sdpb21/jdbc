@@ -1,8 +1,9 @@
+import	java.sql.Connection;
 
 public class C02InsertDataIntoMysqlDatabase {
 
 	public static void main(String[] args) {
-		
+		Connection myConnection=null;
 	}
 
 }
