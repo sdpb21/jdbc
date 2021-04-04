@@ -20,7 +20,13 @@ public class C03UpdatingDataInAMysqlDatabase {
 			System.out.println("Update completed.");
 		}catch(Exception exc) {
 			exc.printStackTrace();
-		}
+		}finally {
+			if(myStatement!=null) {
+				myStatement.close();
+			}
+			if(myConnection!=null) {
+				myConnection.close();
+			}
 	}
 
 }
