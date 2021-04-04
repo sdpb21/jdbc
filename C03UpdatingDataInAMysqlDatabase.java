@@ -1,10 +1,11 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import	java.sql.Statement;
 
 public class C03UpdatingDataInAMysqlDatabase {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection myConnection=null;
 		Statement myStatement=null;
 
@@ -27,6 +28,7 @@ public class C03UpdatingDataInAMysqlDatabase {
 			if(myConnection!=null) {
 				myConnection.close();
 			}
+		}
 	}
 
 }
