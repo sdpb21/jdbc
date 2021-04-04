@@ -1,10 +1,11 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import	java.sql.Statement;
 
 public class C02InsertDataIntoMysqlDatabase {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection myConnection=null;
 		Statement myStatement=null;
 
@@ -21,6 +22,13 @@ public class C02InsertDataIntoMysqlDatabase {
 			System.out.println("Insert complete.");
 		}catch(Exception exc) {
 			exc.printStackTrace();
+		}finally {
+			if(myStatement!=null) {
+				myStatement.close();
+			}
+			if(myConnection!=null) {
+				myConnection.close();
+			}
 		}
 	}
 
