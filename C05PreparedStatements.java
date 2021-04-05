@@ -22,6 +22,17 @@ public class C05PreparedStatements {
 			//4. execute SQL query
 			myResultSet=myStatement.executeQuery();
 			//5. display the result set
+			display(myResultSet);
+			System.out.println("\n\nReuse the prepared statement: salary > 25000, department = HR");
+			//6. set the parameters
+			myStatement.setDouble(1, 25000);
+			myStatement.setString(2, "HR");
+			//7. execute SQL query
+			myResultSet=myStatement.executeQuery();
+			//8. display the result set
+			display(myResultSet);
+		}catch(Exception exc) {
+			exc.printStackTrace();
 		}
 	}
 	private static void display(ResultSet rs) throws SQLException {
