@@ -15,6 +15,12 @@ public class C05PreparedStatements {
 			myConnection=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","K1n9-cr1m50n");
 			//2. prepare the statement
 			myStatement=myConnection.prepareStatement("select * from employees where salary > ? and department=?");
+			//3. set the parameters
+			myStatement.setDouble(1, 80000);
+			myStatement.setString(2, "Legal");
+			//4. execute SQL query
+			myResultSet=myStatement.executeQuery();
+			//5. display the result set
 		}
 	}
 
