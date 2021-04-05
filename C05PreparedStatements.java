@@ -2,6 +2,7 @@ import	java.sql.Connection;
 import java.sql.DriverManager;
 import	java.sql.PreparedStatement;
 import	java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class C05PreparedStatements {
 
@@ -21,6 +22,12 @@ public class C05PreparedStatements {
 			//4. execute SQL query
 			myResultSet=myStatement.executeQuery();
 			//5. display the result set
+		}
+	}
+	private static void display(ResultSet rs) throws SQLException {
+		while(rs.next()) {
+			String lastName=rs.getString("last_name");
+			String firstName=rs.getString("first_name");
 		}
 	}
 
