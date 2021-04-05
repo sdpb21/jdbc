@@ -20,6 +20,8 @@ public class C04DeletingDataFromAMysqlDatabase {
 			System.out.println("Rows affected: "+rowsAffected);
 			System.out.println("Delete completed.");
 		}catch(Exception exc) {
+			exc.printStackTrace();
+		}finally {
 			
 		}
 	}
