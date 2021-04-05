@@ -8,6 +8,10 @@ public class C05PreparedStatements {
 		Connection myConnection=null;
 		PreparedStatement myStatement=null;
 		ResultSet myResultSet=null;
+
+		try {
+			
+		}
 	}
 
 }
