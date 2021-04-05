@@ -28,6 +28,9 @@ public class C05PreparedStatements {
 		while(rs.next()) {
 			String lastName=rs.getString("last_name");
 			String firstName=rs.getString("first_name");
+			double salary=rs.getDouble("salary");
+			String department=rs.getString("department");
+			System.out.printf("%s, %s, %.2f, %s\n",lastName,firstName,salary,department);
 		}
 	}
 
