@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class C05PreparedStatements {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection myConnection=null;
 		PreparedStatement myStatement=null;
 		ResultSet myResultSet=null;
@@ -33,6 +33,16 @@ public class C05PreparedStatements {
 			display(myResultSet);
 		}catch(Exception exc) {
 			exc.printStackTrace();
+		}finally {
+			if(myResultSet!=null) {
+				myResultSet.close();
+			}
+			if(myStatement!=null) {
+				myStatement.close();
+			}
+			if(myConnection!=null) {
+				myConnection.close();
+			}
 		}
 	}
 	private static void display(ResultSet rs) throws SQLException {
