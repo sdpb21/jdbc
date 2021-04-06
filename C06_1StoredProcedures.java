@@ -29,6 +29,10 @@ public class C06_1StoredProcedures {
 			//call stored procedure
 			System.out.println("\n\nCalling stored procedure increase_salaries_for_department('"+theDepartment+"', "+theIncreaseAmount+")");
 			myStatement.execute();
+			System.out.println("Finished calling stored procedure");
+			//show salaries after
+			System.out.println("\n\nSalaries after:\n");
+			showSalaries(myConnection,theDepartment);
 		}catch(Exception exc) {
 			
 		}
