@@ -20,6 +20,11 @@ public class C06_1StoredProcedures {
 			int theIncreaseAmount=10000;
 			//show salaries before
 			System.out.println("Salaries before:");
+			showSalaries(myConnection,theDepartment);
+			//prepare the stored procedure call
+			myStatement=myConnection.prepareCall("{call increase_salaries_for_department(?,?)}");
+		}catch(Exception exc) {
+			
 		}
 	}
 
