@@ -8,7 +8,7 @@ import	java.sql.Statement;
 
 public class C06_1StoredProcedures {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection myConnection=null;
 		CallableStatement myStatement=null;
 
@@ -34,7 +34,9 @@ public class C06_1StoredProcedures {
 			System.out.println("\n\nSalaries after:\n");
 			showSalaries(myConnection,theDepartment);
 		}catch(Exception exc) {
-			
+			exc.printStackTrace();
+		}finally {
+			close(myConnection,myStatement,null);
 		}
 	}
 
