@@ -1,6 +1,10 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
 import	java.sql.CallableStatement;
+import	java.sql.PreparedStatement;
+import	java.sql.ResultSet;
+import java.sql.SQLException;
+import	java.sql.Statement;
 
 public class C06_1StoredProcedures {
 
@@ -19,8 +23,43 @@ public class C06_1StoredProcedures {
 		}
 	}
 
-	private static void showSalaries(Connection myCo,String Dep) {
-		
+	private static void showSalaries(Connection myCo,String Dep) throws SQLException {
+		PreparedStatement myState=null;
+		ResultSet myResultSet=null;
+
+		try {
+			//prepare statement
+			myState=myCo.prepareStatement("select * from employees where department=?");
+			myState.setString(1, Dep);
+			//execute SQL query
+			myResultSet=myState.executeQuery();
+			//process result set
+			while(myResultSet.next()) {
+				String lastName=myResultSet.getString("last_name");
+				String firstName=myResultSet.getString("first_name");
+				double salary=myResultSet.getDouble("salary");
+				String department=myResultSet.getString("department");
+				System.out.printf("%s, %s, %s, %.2f\n",lastName,firstName,department,salary);
+			}
+		}catch(Exception exc) {
+			exc.printStackTrace();
+		}finally {
+			close(myState,myResultSet);
+		}
+	}
+	private static void close(Connection connectionObject,Statement statementObject,ResultSet resultSetObject) throws SQLException {
+		if(resultSetObject!=null) {
+			resultSetObject.close();
+		}
+		if(statementObject!=null) {
+			statementObject.close();
+		}
+		if(connectionObject!=null) {
+			connectionObject.close();
+		}
+	}
+	private static void close(Statement statementObject1,ResultSet resultSetObject1) throws SQLException {
+		close(null,statementObject1,resultSetObject1);
 	}
 
 }
