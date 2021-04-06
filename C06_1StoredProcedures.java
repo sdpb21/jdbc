@@ -23,6 +23,12 @@ public class C06_1StoredProcedures {
 			showSalaries(myConnection,theDepartment);
 			//prepare the stored procedure call
 			myStatement=myConnection.prepareCall("{call increase_salaries_for_department(?,?)}");
+			//set the parameters
+			myStatement.setString(1, theDepartment);
+			myStatement.setDouble(2, theIncreaseAmount);
+			//call stored procedure
+			System.out.println("\n\nCalling stored procedure increase_salaries_for_department('"+theDepartment+"', "+theIncreaseAmount+")");
+			myStatement.execute();
 		}catch(Exception exc) {
 			
 		}
