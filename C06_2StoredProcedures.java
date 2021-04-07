@@ -11,6 +11,9 @@ public class C06_2StoredProcedures {
 		try {//"jdbc:mysql://localhost:3306/demo","root","K1n9-cr1m50n"
 			//get a connection to database
 			connectionObject=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root","K1n9-cr1m50n");
+			String theDepartment="Engineering";
+			//prepare the stored procedure call
+			callableStatementObject=connectionObject.prepareCall("{call greet_the_department(?)}");
 		}catch(Exception exc) {
 			
 		}
