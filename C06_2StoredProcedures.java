@@ -1,5 +1,6 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Types;
 import	java.sql.CallableStatement;
 
 public class C06_2StoredProcedures {
@@ -14,6 +15,8 @@ public class C06_2StoredProcedures {
 			String theDepartment="Engineering";
 			//prepare the stored procedure call
 			callableStatementObject=connectionObject.prepareCall("{call greet_the_department(?)}");
+			//set the parameters
+			callableStatementObject.registerOutParameter(1, Types.VARCHAR);
 		}catch(Exception exc) {
 			
 		}
