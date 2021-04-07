@@ -1,11 +1,12 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Types;
 import	java.sql.CallableStatement;
 
 public class C06_2StoredProcedures {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection connectionObject=null;
 		CallableStatement callableStatementObject=null;
 
@@ -21,8 +22,19 @@ public class C06_2StoredProcedures {
 			//call stored procedure
 			System.out.println("Calling stored procedure greet_the_department('"+theDepartment+"')");
 			callableStatementObject.execute();
+			System.out.println("Calling stored procedure completed");
+			//get the value of INOUT parameter
+			String theResult=callableStatementObject.getString(1);
+			System.out.println("\nThe result: "+theResult);
 		}catch(Exception exc) {
-			
+			exc.printStackTrace();
+		}finally {
+			if(callableStatementObject!=null) {
+				callableStatementObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 
