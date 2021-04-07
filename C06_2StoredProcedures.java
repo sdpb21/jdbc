@@ -17,6 +17,10 @@ public class C06_2StoredProcedures {
 			callableStatementObject=connectionObject.prepareCall("{call greet_the_department(?)}");
 			//set the parameters
 			callableStatementObject.registerOutParameter(1, Types.VARCHAR);
+			callableStatementObject.setString(1, theDepartment);
+			//call stored procedure
+			System.out.println("Calling stored procedure greet_the_department('"+theDepartment+"')");
+			callableStatementObject.execute();
 		}catch(Exception exc) {
 			
 		}
