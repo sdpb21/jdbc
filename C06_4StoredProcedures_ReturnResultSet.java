@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class C06_4StoredProcedures_ReturnResultSet {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection connectionObject=null;
 		CallableStatement callableStatementObject=null;
 		ResultSet resultSetObject=null;
@@ -29,7 +29,15 @@ public class C06_4StoredProcedures_ReturnResultSet {
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}finally {
-			
+			if(resultSetObject!=null) {
+				resultSetObject.close();
+			}
+			if(callableStatementObject!=null) {
+				callableStatementObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 	private static void display(ResultSet resultSetObject2) throws SQLException {
