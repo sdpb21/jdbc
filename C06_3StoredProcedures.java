@@ -27,6 +27,8 @@ public class C06_3StoredProcedures {
 			System.out.println("\nThe count: "+count);
 		}catch(Exception exc) {
 			exc.printStackTrace();
+		}finally {
+			
 		}
 	}
 
