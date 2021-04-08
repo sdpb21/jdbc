@@ -1,11 +1,12 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Types;
 import	java.sql.CallableStatement;
 
 public class C06_3StoredProcedures {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection connectionObject=null;
 		CallableStatement callableStatementObject=null;
 
@@ -28,7 +29,12 @@ public class C06_3StoredProcedures {
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}finally {
-			
+			if(callableStatementObject!=null) {
+				callableStatementObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 
