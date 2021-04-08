@@ -16,6 +16,11 @@ public class C06_4StoredProcedures_ReturnResultSet {
 			String department="Engineering";
 			//prepare the stored procedure call
 			callableStatementObject=connectionObject.prepareCall("{call get_employees_for_department(?)}");
+			//set the parameter
+			callableStatementObject.setString(1, department);
+			//call stored procedure
+			callableStatementObject.execute();
+			System.out.println("Finished calling stored procedure.");
 			}catch(Exception exc) {
 			
 		}
