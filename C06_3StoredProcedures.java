@@ -14,6 +14,8 @@ public class C06_3StoredProcedures {
 			String theDepartment="Engineering";
 			//prepare the stored procedure call
 			callableStatementObject=connectionObject.prepareCall("{call get_count_for_department(?,?)}");
+			//set the parameters
+			callableStatementObject.setString(1, theDepartment);
 		}catch(Exception exc) {
 			
 		}
