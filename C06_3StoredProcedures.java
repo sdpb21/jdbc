@@ -22,6 +22,9 @@ public class C06_3StoredProcedures {
 			System.out.println("Calling stored procedure get_count_for_department('"+theDepartment+"',?)");
 			callableStatementObject.execute();
 			System.out.println("Calling stored procedure complete");
+			//get the value for the OUT parameter
+			int count=callableStatementObject.getInt(2);
+			System.out.println("\nThe count: "+count);
 		}catch(Exception exc) {
 			
 		}
