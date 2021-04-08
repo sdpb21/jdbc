@@ -1,4 +1,5 @@
 import	java.sql.Connection;
+import	java.sql.CallableStatement;
 
 public class C06_3StoredProcedures {
 
