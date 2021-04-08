@@ -26,7 +26,7 @@ public class C06_3StoredProcedures {
 			int count=callableStatementObject.getInt(2);
 			System.out.println("\nThe count: "+count);
 		}catch(Exception exc) {
-			
+			exc.printStackTrace();
 		}
 	}
 
