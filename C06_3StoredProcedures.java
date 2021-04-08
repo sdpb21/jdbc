@@ -9,6 +9,8 @@ public class C06_3StoredProcedures {
 
 		try {
 			
+		}catch(Exception exc) {
+			
 		}
 	}
 
