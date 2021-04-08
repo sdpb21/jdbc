@@ -18,6 +18,10 @@ public class C06_3StoredProcedures {
 			//set the parameters
 			callableStatementObject.setString(1, theDepartment);
 			callableStatementObject.registerOutParameter(2, Types.INTEGER);
+			//call the stored procedure
+			System.out.println("Calling stored procedure get_count_for_department('"+theDepartment+"',?)");
+			callableStatementObject.execute();
+			System.out.println("Calling stored procedure complete");
 		}catch(Exception exc) {
 			
 		}
