@@ -7,13 +7,16 @@ public class C06_4StoredProcedures_ReturnResultSet {
 
 	public static void main(String[] args) {
 		Connection connectionObject=null;
-		CallableStatement callablestatementObject=null;
+		CallableStatement callableStatementObject=null;
 		ResultSet resultsetObject=null;
 
 		try {
 			//get a connection to database
 			connectionObject=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","K1n9-cr1m50n");
-		}catch(Exception exc) {
+			String department="Engineering";
+			//prepare the stored procedure call
+			callableStatementObject=connectionObject.prepareCall("{call get_employees_for_department(?)}");
+			}catch(Exception exc) {
 			
 		}
 	}
