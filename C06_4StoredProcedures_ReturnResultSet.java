@@ -25,7 +25,10 @@ public class C06_4StoredProcedures_ReturnResultSet {
 			//get the result set
 			resultSetObject=callableStatementObject.getResultSet();
 			//display the result
+			display(resultSetObject);
 		}catch(Exception exc) {
+			exc.printStackTrace();
+		}finally {
 			
 		}
 	}
