@@ -1,5 +1,6 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Types;
 import	java.sql.CallableStatement;
 
 public class C06_3StoredProcedures {
@@ -16,6 +17,7 @@ public class C06_3StoredProcedures {
 			callableStatementObject=connectionObject.prepareCall("{call get_count_for_department(?,?)}");
 			//set the parameters
 			callableStatementObject.setString(1, theDepartment);
+			callableStatementObject.registerOutParameter(2, Types.INTEGER);
 		}catch(Exception exc) {
 			
 		}
