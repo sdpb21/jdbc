@@ -8,7 +8,7 @@ public class C06_4StoredProcedures_ReturnResultSet {
 	public static void main(String[] args) {
 		Connection connectionObject=null;
 		CallableStatement callableStatementObject=null;
-		ResultSet resultsetObject=null;
+		ResultSet resultSetObject=null;
 
 		try {
 			//get a connection to database
@@ -21,6 +21,8 @@ public class C06_4StoredProcedures_ReturnResultSet {
 			//call stored procedure
 			callableStatementObject.execute();
 			System.out.println("Finished calling stored procedure.");
+			//get the result set
+			resultSetObject=callableStatementObject.getResultSet();
 			}catch(Exception exc) {
 			
 		}
