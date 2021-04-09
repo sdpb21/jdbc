@@ -17,6 +17,15 @@ public class C07Transactions {
 			connectionObject.setAutoCommit(false);
 			//show salaries before the change
 			System.out.println("Salaries before statement execute:");
+			showSalaries(connectionObject,"HR");
+			showSalaries(connectionObject,"Engineering");
+			//Transaction step 1: delete all HR employees
+			statementObject=connectionObject.createStatement();
+			statementObject.executeUpdate("delete from employees where department='HR'");
+			//Transaction step 2: set salaries to 300000 for all in the Engineering department
+			statementObject.executeUpdate("update employees set salary=300000 where department='Engineering'");
+			System.out.println("\n>> Transaction steps completed\n");
+			// ask the user if really wish to save
 		}catch(Exception exc) {
 		}
 	}
@@ -58,5 +67,8 @@ public class C07Transactions {
 	}
 	private static void close(Statement statementObject,ResultSet resultSetObject) throws SQLException {
 		close(null,statementObject,resultSetObject);
+	}
+	private static boolean askUserIfOkToSave() {
+		
 	}
 }
