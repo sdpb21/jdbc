@@ -1,11 +1,18 @@
 import	java.sql.Connection;
 import java.sql.DriverManager;
 import	java.sql.DatabaseMetaData;
+import	java.sql.ResultSet;
 
 public class C08DatabaseMetadata {
 
 	public static void main(String[] args) {
+		String catalog=null;
+		String schemaPattern=null;
+		String tableNamePattern=null;
+		String columnNamePattern=null;
+		String[] types=null;
 		Connection connectionObject=null;
+		ResultSet resultSetObject=null;
 
 		try {
 			//get a connection to database
@@ -19,6 +26,12 @@ public class C08DatabaseMetadata {
 			//display information about JDBC driver
 			System.out.println("JDBC driver name: "+databaseMetadataObject.getDriverName());
 			System.out.println("JDBC driver version: "+databaseMetadataObject.getDriverVersion());
+			//get list of tables
+			System.out.println("List of tables\n--------------");
+			resultSetObject=databaseMetadataObject.getTables(catalog, schemaPattern, tableNamePattern, types);
+			while(resultSetObject.next()) {
+				System.out.println(resultSetObject.getString("TABLE_NAME"));
+			}
 		}catch(Exception exc) {
 		}
 	}
