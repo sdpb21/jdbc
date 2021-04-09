@@ -32,6 +32,12 @@ public class C08DatabaseMetadata {
 			while(resultSetObject.next()) {
 				System.out.println(resultSetObject.getString("TABLE_NAME"));
 			}
+			//get list of columns
+			System.out.println("\nList of columns\n----------------");
+			resultSetObject=databaseMetadataObject.getColumns(catalog, schemaPattern, "employees", columnNamePattern);
+			while(resultSetObject.next()) {
+				System.out.println(resultSetObject.getString("COLUMN_NAME"));
+			}
 		}catch(Exception exc) {
 		}
 	}
