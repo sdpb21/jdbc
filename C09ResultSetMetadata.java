@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
@@ -10,6 +11,8 @@ public class C09ResultSetMetadata {
 		ResultSet resultSetObject=null;
 
 		try {
+			//get a connection to the database
+			connectionObject=DriverManager.getConnection("jdbc:mysql://localhost:33067demo","root","K1n9-cr1m50n");
 		}catch(Exception exc) {
 		}
 	}
