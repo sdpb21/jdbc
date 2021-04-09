@@ -39,6 +39,7 @@ public class C08DatabaseMetadata {
 				System.out.println(resultSetObject.getString("COLUMN_NAME"));
 			}
 		}catch(Exception exc) {
+			exc.printStackTrace();
 		}
 	}
 
