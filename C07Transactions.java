@@ -8,7 +8,7 @@ import	java.util.Scanner;
 
 public class C07Transactions {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection connectionObject=null;
 		Statement statementObject=null;
 		try {
@@ -44,7 +44,7 @@ public class C07Transactions {
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}finally {
-			
+			close(connectionObject,statementObject,null);
 		}
 	}
 	private static void showSalaries(Connection connectionObject2,String department) throws SQLException {
