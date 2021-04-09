@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 public class C09ResultSetMetadata {
 
@@ -16,6 +17,8 @@ public class C09ResultSetMetadata {
 			//run query
 			statementObject=connectionObject.createStatement();
 			resultSetObject=statementObject.executeQuery("select id,last_name,first_name,salary from employees");
+			//get result set metadata
+			ResultSetMetaData resultSetMetaDataObject=resultSetObject.getMetaData();
 		}catch(Exception exc) {
 		}
 	}
