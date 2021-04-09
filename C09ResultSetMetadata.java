@@ -29,6 +29,7 @@ public class C09ResultSetMetadata {
 				System.out.println("Is auto increment: "+resultSetMetaDataObject.isAutoIncrement(column)+"\n");
 			}
 		}catch(Exception exc) {
+			exc.printStackTrace();
 		}
 	}
 
