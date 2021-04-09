@@ -20,7 +20,7 @@ public class C07Transactions {
 		}catch(Exception exc) {
 		}
 	}
-	private static void showSalaries(Connection connectionObject2,String department) {
+	private static void showSalaries(Connection connectionObject2,String department) throws SQLException {
 		PreparedStatement preparedStatementObject=null;
 		ResultSet resultSetObject=null;
 
@@ -42,7 +42,7 @@ public class C07Transactions {
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}finally {
-			
+			close(preparedStatementObject,resultSetObject);
 		}
 	}
 	private static void close(Connection connectionObject3,Statement statementObject2,ResultSet resultSetObject) throws SQLException {
