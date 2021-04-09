@@ -40,6 +40,7 @@ public class C08DatabaseMetadata {
 			}
 		}catch(Exception exc) {
 			exc.printStackTrace();
+		}finally {
 		}
 	}
 
