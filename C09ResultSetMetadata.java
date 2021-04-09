@@ -3,10 +3,11 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 public class C09ResultSetMetadata {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Connection connectionObject=null;
 		Statement statementObject=null;
 		ResultSet resultSetObject=null;
@@ -31,6 +32,15 @@ public class C09ResultSetMetadata {
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}finally {
+			if(resultSetObject!=null) {
+				resultSetObject.close();
+			}
+			if(statementObject!=null) {
+				statementObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 
