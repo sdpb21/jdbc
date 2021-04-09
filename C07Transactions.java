@@ -12,8 +12,11 @@ public class C07Transactions {
 			connectionObject=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","K1n9-cr1m50n");
 			//turn off auto commit
 			connectionObject.setAutoCommit(false);
+			//show salaries before the change
+			System.out.println("Salaries before statement execute:");
 		}catch(Exception exc) {
 		}
 	}
-
+	private static void showSalaries(Connection connectionObject2,String department) {
+	}
 }
