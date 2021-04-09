@@ -56,4 +56,7 @@ public class C07Transactions {
 			connectionObject3.close();
 		}
 	}
+	private static void close(Statement statementObject,ResultSet resultSetObject) {
+		
+	}
 }
