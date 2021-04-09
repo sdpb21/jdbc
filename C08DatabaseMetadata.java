@@ -16,6 +16,9 @@ public class C08DatabaseMetadata {
 			System.out.println("Product name: "+databaseMetadataObject.getDatabaseProductName());
 			System.out.println("Product version: "+databaseMetadataObject.getDatabaseProductVersion());
 			System.out.printf("\n");
+			//display information about JDBC driver
+			System.out.println("JDBC driver name: "+databaseMetadataObject.getDriverName());
+			System.out.println("JDBC driver version: "+databaseMetadataObject.getDriverVersion());
 		}catch(Exception exc) {
 		}
 	}
