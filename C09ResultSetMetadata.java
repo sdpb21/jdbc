@@ -13,6 +13,9 @@ public class C09ResultSetMetadata {
 		try {
 			//get a connection to the database
 			connectionObject=DriverManager.getConnection("jdbc:mysql://localhost:33067demo","root","K1n9-cr1m50n");
+			//run query
+			statementObject=connectionObject.createStatement();
+			resultSetObject=statementObject.executeQuery("select id,last_name,first_name,salary from employees");
 		}catch(Exception exc) {
 		}
 	}
