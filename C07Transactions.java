@@ -4,6 +4,7 @@ import	java.sql.Statement;
 import	java.sql.PreparedStatement;
 import	java.sql.ResultSet;
 import java.sql.SQLException;
+import	java.util.Scanner;
 
 public class C07Transactions {
 
@@ -69,6 +70,11 @@ public class C07Transactions {
 		close(null,statementObject,resultSetObject);
 	}
 	private static boolean askUserIfOkToSave() {
-		
+		Scanner scannerObject=new Scanner(System.in);
+
+		System.out.println("Is it ok to save? yes/no: ");
+		String input=scannerObject.nextLine();
+		scannerObject.close();
+		return input.equalsIgnoreCase("yes");
 	}
 }
