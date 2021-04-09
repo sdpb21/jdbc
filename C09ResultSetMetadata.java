@@ -30,6 +30,7 @@ public class C09ResultSetMetadata {
 			}
 		}catch(Exception exc) {
 			exc.printStackTrace();
+		}finally {
 		}
 	}
 
