@@ -2,10 +2,11 @@ import	java.sql.Connection;
 import java.sql.DriverManager;
 import	java.sql.DatabaseMetaData;
 import	java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class C08DatabaseMetadata {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		String catalog=null;
 		String schemaPattern=null;
 		String tableNamePattern=null;
@@ -41,6 +42,12 @@ public class C08DatabaseMetadata {
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}finally {
+			if(resultSetObject!=null) {
+				resultSetObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 
