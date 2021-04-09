@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import	java.sql.Statement;
 import	java.sql.PreparedStatement;
 import	java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class C07Transactions {
 
@@ -44,7 +45,15 @@ public class C07Transactions {
 			
 		}
 	}
-	private static void close(Connection connectionObject3,Statement statementObject2,ResultSet resultSetObject) {
-		
+	private static void close(Connection connectionObject3,Statement statementObject2,ResultSet resultSetObject) throws SQLException {
+		if(resultSetObject!=null) {
+			resultSetObject.close();
+		}
+		if(statementObject2!=null) {
+			statementObject2.close();
+		}
+		if(connectionObject3!=null) {
+			connectionObject3.close();
+		}
 	}
 }
