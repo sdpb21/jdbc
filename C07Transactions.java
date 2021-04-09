@@ -27,6 +27,20 @@ public class C07Transactions {
 			statementObject.executeUpdate("update employees set salary=300000 where department='Engineering'");
 			System.out.println("\n>> Transaction steps completed\n");
 			// ask the user if really wish to save
+			boolean ok=askUserIfOkToSave();
+			if(ok) {
+				//store in database
+				connectionObject.commit();
+				System.out.println("\n>> Transaction commited\n");
+			}else {
+				//discard
+				connectionObject.rollback();
+				System.out.println("\n>> Transaction rolled back\n");
+			}
+			//show salaries after answer yes or no
+			System.out.println("Salaries after answering yes or no\n");
+			showSalaries(connectionObject,"HR");
+			showSalaries(connectionObject,"Engineering");
 		}catch(Exception exc) {
 		}
 	}
