@@ -42,6 +42,7 @@ public class C07Transactions {
 			showSalaries(connectionObject,"HR");
 			showSalaries(connectionObject,"Engineering");
 		}catch(Exception exc) {
+			exc.printStackTrace();
 		}
 	}
 	private static void showSalaries(Connection connectionObject2,String department) throws SQLException {
