@@ -2,13 +2,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.io.InputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.File;
 
 public class C10ReadBLOB {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, SQLException {
 		Connection connectionObject=null;
 		Statement statementObject=null;
 		ResultSet resultSetObject=null;
@@ -39,6 +41,22 @@ public class C10ReadBLOB {
 			}
 		}catch(Exception exc) {
 			exc.printStackTrace();
+		}finally {
+			if(inputStreamObject!=null) {
+				inputStreamObject.close();
+			}
+			if(output!=null) {
+				output.close();
+			}
+			if(resultSetObject!=null) {
+				resultSetObject.close();
+			}
+			if(statementObject!=null) {
+				statementObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 
