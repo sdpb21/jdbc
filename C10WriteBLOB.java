@@ -22,6 +22,11 @@ public class C10WriteBLOB {
 			input=new FileInputStream(theFile);
 			preparedStatementObject.setBinaryStream(1, input);
 			System.out.println("Reading input file: "+theFile.getAbsolutePath());
+			//execute statement
+			System.out.println("\nStoring resume in database: "+theFile);
+			System.out.println(sql);
+			preparedStatementObject.executeUpdate();
+			System.out.println("\nCompleted successfully!");
 		}catch(Exception exc) {
 		}
 	}
