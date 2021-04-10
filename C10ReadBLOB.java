@@ -4,6 +4,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.io.InputStream;
 import java.io.FileOutputStream;
+import java.io.File;
 
 public class C10ReadBLOB {
 
@@ -11,7 +12,7 @@ public class C10ReadBLOB {
 		Connection connectionObject=null;
 		Statement statementObject=null;
 		ResultSet resultSetObject=null;
-		InputStream input=null;
+		InputStream inputStreamObject=null;
 		FileOutputStream output=null;
 
 		try {
@@ -21,6 +22,21 @@ public class C10ReadBLOB {
 			statementObject=connectionObject.createStatement();
 			String sql="select resume from employees where email='john.doe@foo.com'";
 			resultSetObject=statementObject.executeQuery(sql);
+			//set up a handle to the file
+			File fileObject=new File("resume_from_db.pdf");
+			output=new FileOutputStream(fileObject);
+
+			if(resultSetObject.next()) {
+				inputStreamObject=resultSetObject.getBinaryStream("resume");
+				System.out.println("Reading resume from database");
+				System.out.println(sql);
+				byte[] buffer=new byte[1024];
+				while(inputStreamObject.read(buffer)>0) {
+					output.write(buffer);
+				}
+				System.out.println("\nSaved to file: "+fileObject.getAbsolutePath());
+				System.out.println("\nCompleted successfully!");
+			}
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}
