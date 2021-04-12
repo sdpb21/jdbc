@@ -22,6 +22,11 @@ public class C11_1WriteCLOB {
 			inputFileReaderObject=new FileReader(fileObject);
 			preparedStatementObject.setCharacterStream(1, inputFileReaderObject);
 			System.out.println("Reading input file: "+fileObject.getAbsolutePath());
+			//execute statement
+			System.out.println("\nStoring document in database: "+fileObject);
+			System.out.println(sql);
+			preparedStatementObject.executeUpdate();
+			System.out.println("\nCompleted successfully!");
 		}catch(Exception exc) {
 		}
 	}
