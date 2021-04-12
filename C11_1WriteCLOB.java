@@ -20,6 +20,8 @@ public class C11_1WriteCLOB {
 			//set parameter for document file name
 			File fileObject=new File("sample_resume.txt");
 			inputFileReaderObject=new FileReader(fileObject);
+			preparedStatementObject.setCharacterStream(1, inputFileReaderObject);
+			System.out.println("Reading input file: "+fileObject.getAbsolutePath());
 		}catch(Exception exc) {
 		}
 	}
