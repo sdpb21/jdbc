@@ -2,11 +2,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.File;
 
 public class C11_1WriteCLOB {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Connection connectionObject=null;
 		PreparedStatement preparedStatementObject=null;
 		FileReader inputFileReaderObject=null;
@@ -28,6 +29,17 @@ public class C11_1WriteCLOB {
 			preparedStatementObject.executeUpdate();
 			System.out.println("\nCompleted successfully!");
 		}catch(Exception exc) {
+			exc.printStackTrace();
+		}finally {
+			if(inputFileReaderObject!=null) {
+				inputFileReaderObject.close();
+			}
+			if(preparedStatementObject!=null) {
+				preparedStatementObject.close();
+			}
+			if(connectionObject!=null) {
+				connectionObject.close();
+			}
 		}
 	}
 
