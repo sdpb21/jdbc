@@ -45,4 +45,8 @@ public class C12_2Employee {
 	public void setSalary(BigDecimal salary3) {
 		salary=salary3;
 	}
+	@Override
+	public String toString() {
+		return String.format("Employee [id=%s, lastName=%s, firstName=%s, email=%s, salary=%s]",id,lastName,firstName,email,salary);
+	}
 }
