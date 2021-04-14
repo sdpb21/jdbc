@@ -18,4 +18,6 @@ public class C12_2EmployeeDAO {
 		connectionObject=DriverManager.getConnection(dburl, user, password);
 		System.out.println("database connection successful to: "+dburl);
 	}
+	public List<Employee> getAllEmployees() throws Exception{
+	}
 }
