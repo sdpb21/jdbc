@@ -32,7 +32,11 @@ public class C12_2EmployeeDAO {
 			statementObject=connectionObject.createStatement();
 			resultSetObject=statementObject.executeQuery("select * from employees");
 			while(resultSetObject.next()) {
+				C12_2Employee tempEmployee=convertRowToEmployee(resultSetObject);
+				listObject.add(tempEmployee);
 			}
+			return listObject;
+		}finally {
 		}
 	}
 	private C12_2Employee convertRowToEmployee(ResultSet reSetObj) throws SQLException{
@@ -43,5 +47,16 @@ public class C12_2EmployeeDAO {
 		BigDecimal salary=reSetObj.getBigDecimal("salary");
 		C12_2Employee tempEmployee=new C12_2Employee(id,lastName,firstName,email,salary);
 		return tempEmployee;
+	}
+	private static void close(Connection connObj,Statement statObj,ResultSet reSetObj) throws SQLException {
+		if(reSetObj!=null) {
+			reSetObj.close();
+		}
+		if(statObj!=null) {
+			statObj.close();
+		}
+		if(connObj!=null) {
+			connObj.close();
+		}
 	}
 }
