@@ -59,4 +59,7 @@ public class C12_2EmployeeDAO {
 			connObj.close();
 		}
 	}
+	private void close(Statement statObj,ResultSet reSetObj) throws SQLException {
+		close(null,statObj,reSetObj);
+	}
 }
