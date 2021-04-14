@@ -15,4 +15,34 @@ public class C12_2Employee {
 		email=email2;
 		salary=salary2;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id3) {
+		id=id3;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName3) {
+		lastName=lastName3;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName3) {
+		firstName=firstName3;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email3) {
+		email=email3;
+	}
+	public BigDecimal getSalary() {
+		return salary;
+	}
+	public void setSalary(BigDecimal salary3) {
+		salary=salary3;
+	}
 }
