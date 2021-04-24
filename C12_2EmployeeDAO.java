@@ -83,4 +83,9 @@ public class C12_2EmployeeDAO {
 	private void close(Statement statObj,ResultSet reSetObj) throws SQLException {
 		close(null,statObj,reSetObj);
 	}
+	public static void main(String[] args) throws Exception {
+		C12_2EmployeeDAO dao=new C12_2EmployeeDAO();
+		System.out.println(dao.searchEmployees("thom"));
+		System.out.println(dao.getAllEmployees());
+	}//end of main
 }
