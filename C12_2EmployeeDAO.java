@@ -40,6 +40,8 @@ public class C12_2EmployeeDAO {
 			close(statementObject,resultSetObject);
 		}
 	}
+	public List<C12_2Employee> searchEmployees(String lastName){
+	}//end of searchEmployees
 	private C12_2Employee convertRowToEmployee(ResultSet reSetObj) throws SQLException{
 		int id=reSetObj.getInt("id");
 		String lastName=reSetObj.getString("last_name");
