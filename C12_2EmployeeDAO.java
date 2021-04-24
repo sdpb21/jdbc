@@ -37,6 +37,7 @@ public class C12_2EmployeeDAO {
 			}
 			return listObject;
 		}finally {
+			close(statementObject,resultSetObject);
 		}
 	}
 	private C12_2Employee convertRowToEmployee(ResultSet reSetObj) throws SQLException{
