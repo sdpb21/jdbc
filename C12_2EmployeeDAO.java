@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.math.BigDecimal;
+import java.sql.PreparedStatement;
 
 public class C12_2EmployeeDAO {
 	private Connection connectionObject;
@@ -40,7 +41,24 @@ public class C12_2EmployeeDAO {
 			close(statementObject,resultSetObject);
 		}
 	}
-	public List<C12_2Employee> searchEmployees(String lastName){
+	public List<C12_2Employee> searchEmployees(String lastName) throws Exception{
+		List<C12_2Employee> listObj=new ArrayList<C12_2Employee>();
+		PreparedStatement preStatObj=null;
+		ResultSet reSetObj=null;
+
+		try {
+			lastName+="%";
+			preStatObj=connectionObject.prepareStatement("select * from employees where last_name like ?");
+			preStatObj.setString(1, lastName);
+			reSetObj=preStatObj.executeQuery();
+			while(reSetObj.next()) {
+				C12_2Employee tempEmployee=convertRowToEmployee(reSetObj);
+				listObj.add(tempEmployee);
+			}// end of while
+			return listObj;
+		}finally {
+			close(preStatObj,reSetObj);
+		}// end of finally
 	}//end of searchEmployees
 	private C12_2Employee convertRowToEmployee(ResultSet reSetObj) throws SQLException{
 		int id=reSetObj.getInt("id");
